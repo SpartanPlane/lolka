@@ -8,7 +8,7 @@ bot = commands.Bot(command_prefix='!')
 async def test(ctx, arg): #создаем асинхронную фунцию бота
     await ctx.send(arg) #отправляем обратно аргумент
 
-bot.run(TOKEN) #Алексей не гей, он покермен
+bot.run(TOKEN) #Алексей не гей, он покермен Боооооооой
 
 
 
