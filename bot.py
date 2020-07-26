@@ -1,16 +1,11 @@
-from config import TOKEN
-import logging
-from aiogram import Bot, Dispatcher, executor, types
-bot = Bot(token=API_TOKEN)
-dp = Dispatcher(bot)
+import discord
+from discord.ext import commands
 
-@dp.message_handler(commands=['start'])
-async def process_hello(message: types.Message):
-    await bot_send_message(message.from_user.id, 'Привет\nЧто будем делать')
+TOKEN = 'NzM3MDE2MTQ5NTU2MDY4NDAy.Xx3Nxw.7ufaMQaIDNbSl8EMRb5u6PFTKQw'
+bot = commands.Bot(command_prefix='!')
 
-@dp.message_handler(commands=['help'])
-async def process_hello(message: types.Message):
-    await bot_send_message(message.from_user.id, 'Нужна помощь?')
+@bot.command(pass_context=True) #разрешаем передавать агрументы
+async def test(ctx, arg): #создаем асинхронную фунцию бота
+    await ctx.send(arg) #отправляем обратно аргумент
 
-if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=False)
+bot.run(TOKEN)
